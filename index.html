@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Terminal-Web</title>
+    <link rel="stylesheet" href="./css/index.css">
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/vs2015.min.css">
+</head>
+<body class="theme-dark">
+    <div id="terminal">
+        <div id="toolbar">
+            <span id="title">Terminal-Web</span>
+            <div id="actions">
+                <span class="material-icons" onclick="toggleTheme()">palette</span>
+                <span class="material-icons" onclick="toggleFullscreen()">fullscreen</span>
+                <span class="material-icons" onclick="executeCommand('help')">help</span>
+            </div>
+        </div>
+        <div id="output"></div>
+        <div id="input-line">
+            <span id="prompt">user@terminal-web:~$ </span>
+            <input type="text" id="command-input" aria-label="Command input" autofocus>
+            <div id="autocomplete-suggestions"></div>
+        </div>
+        <div id="editor" style="display: none;">
+            <div id="editor-toolbar">
+                <span id="editor-file"></span>
+                <div>
+                    <button onclick="saveFile()">Save</button>
+                    <button onclick="closeEditor()">Close</button>
+                </div>
+            </div>
+            <div id="editor-container">
+                <pre id="line-numbers"></pre>
+                <pre><code id="editor-content" contenteditable="true"></code></pre>
+            </div>
+            <div id="editor-status"></div>
+        </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/figlet@1.5.2/lib/figlet.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/languages/javascript.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/languages/python.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/languages/html.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/languages/css.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/languages/typescript.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/languages/json.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/languages/bash.min.js"></script>
+    <script src="./js/index.js"></script>
+</body>
+</html>
